@@ -1,7 +1,7 @@
 # PR Stack Visualizer
 
 A browser extension that helps visualize when GitHub pull requests are not targeting the main branch, making it easier to work with stacked PRs.
-Some changes for the first PR.
+Some changes for the second PR.
 
 ## Features
 
