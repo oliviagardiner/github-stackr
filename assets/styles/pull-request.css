@@ -215,7 +215,7 @@
     position: absolute;
     top: 0;
     left: 10px;
-    width: 2px;
+    width: 0;
     height: 100%;
     background-color: #d0d7de;
     z-index: 1;
@@ -227,21 +227,41 @@
     height: 2px;
     width: 10px;
     background-color: #d0d7de;
-    /*left: 10px;*/
     top: 50%;
     transform: translateY(-50%);
+}
+
+.branch-connector-vertical {
+    position: absolute;
+    top: -18px;
+    left: -10px;
+    width: 2px;
+    height: 100%;
+    background-color: #d0d7de;
 }
 
 .branch-node .branch-connector {
     left: -10px;
 }
 
+.branch-node {
+    --depth: 0;
+    margin-left: calc(var(--depth) * 20px);
+}
+
+/*.branch-node > * {*/
+/*    --depth: calc(var(--depth) + 1);*/
+/*}*/
+
 /* Position connectors for each branch */
 .branch-node:not(:first-child) .branch-connector {
     display: block;
 }
 
-.branch-node:first-child .branch-connector {
+.branch-node:first-child .branch-connector,
+.branch-node:first-child .branch-connector-vertical,
+.main-branch .branch-connector,
+.main-branch .branch-connector-vertical{
     display: none;
 }
 
@@ -338,7 +358,8 @@
     }
 
     .connector-main,
-    .branch-connector {
+    .branch-connector,
+    .branch-connector-vertical {
         background-color: #484f58;
     }
 

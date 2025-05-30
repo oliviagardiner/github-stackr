@@ -2,8 +2,9 @@
   "name": "github-stackr",
   "version": "1.0.0",
   "description": "A visual aid to work with stacked pull requests in Github.",
+  "type": "module",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && cp src/popup/popup.html dist/popup/",
     "watch": "tsc --watch",
     "clean": "rm -rf dist"
   },

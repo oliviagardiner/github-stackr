@@ -2,6 +2,12 @@
 
 A browser extension that helps visualize when GitHub pull requests are not targeting the main branch, making it easier to work with stacked PRs.
 
+## Motivation
+
+CLI tools exist for managing stacked PRs, but when reviewing the code, it's hard to tell where we are in a chain of pull requests. [Github is not planning to add support](https://github.com/cli/cli/issues/5626) for this.
+
+With the help of this tool, if you set up a personal access token with read access, it visualizes the branch hierarchy for stacked PR chains.
+
 ## Features
 
 - 🔍 **Automatic Detection**: Identifies when a PR is targeting a non-main branch
