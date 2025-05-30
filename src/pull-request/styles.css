@@ -1,3 +1,4 @@
+/* Main container styles */
 .pr-stack-indicator {
     margin: 12px 0;
     padding: 0;
@@ -38,6 +39,7 @@
 
 .pr-stack-text {
     font-weight: 600;
+    flex-grow: 1;
 }
 
 .pr-stack-info {
@@ -100,6 +102,179 @@
     margin-top: 8px;
 }
 
+/* Branch Visualization */
+.pr-merge-diagram {
+    padding: 12px;
+    margin: 8px 0 0;
+    background: #ffffff;
+    border-radius: 6px;
+    border: 1px solid #d1d9e0;
+    display: none;
+}
+
+.merge-diagram-container {
+    position: relative;
+    padding: 10px;
+}
+
+.merge-diagram-container.stacked,
+.merge-diagram-container.simple {
+    display: flex;
+    flex-direction: column;
+}
+
+.diagram-title {
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 12px;
+    color: #24292f;
+}
+
+/* Branch visualization */
+.branch-flow {
+    position: relative;
+    padding-left: 20px; /* Space for L-shaped connectors */
+}
+
+/* Vertical Flow for all PRs */
+.branch-flow {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.branch-node {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    border-radius: 6px;
+    background: #ffffff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    position: relative;
+    border: 1px solid #d8dee4;
+    z-index: 2;
+}
+
+.branch-node {
+    max-width: calc(100% - 20px);
+    width: fit-content;
+}
+
+.branch-circle {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 8px;
+    flex-shrink: 0;
+}
+
+.main-branch .branch-circle,
+.branch-circle.main {
+    background-color: #2da44e;
+}
+
+.base-branch .branch-circle,
+.branch-circle.intermediate {
+    background-color: #0969da;
+}
+
+.head-branch .branch-circle,
+.branch-circle.feature {
+    background-color: #8250df;
+}
+
+.branch-label {
+    font-size: 13px;
+    color: #24292f;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-word;
+}
+
+.current-pr-indicator {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background-color: #cf222e;
+    color: white;
+    font-size: 10px;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-weight: 600;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* L-shaped connectors */
+.branch-connector {
+    position: absolute;
+    left: 0;
+}
+
+/* Main vertical connector line */
+.connector-main {
+    position: absolute;
+    top: 0;
+    left: 10px;
+    width: 2px;
+    height: 100%;
+    background-color: #d0d7de;
+    z-index: 1;
+}
+
+/* Horizontal connector lines */
+.branch-connector {
+    position: absolute;
+    height: 2px;
+    width: 10px;
+    background-color: #d0d7de;
+    /*left: 10px;*/
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.branch-node .branch-connector {
+    left: -10px;
+}
+
+/* Position connectors for each branch */
+.branch-node:not(:first-child) .branch-connector {
+    display: block;
+}
+
+.branch-node:first-child .branch-connector {
+    display: none;
+}
+
+/* Toggle functionality */
+.diagram-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    padding: 4px;
+    border-radius: 4px;
+    margin-left: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.diagram-toggle:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.toggle-icon {
+    transition: transform 0.3s ease;
+}
+
+.diagram-toggle[data-expanded="true"] .toggle-icon {
+    transform: rotate(90deg);
+}
+
+.diagram-toggle.expanded .toggle-icon {
+    transform: rotate(90deg);
+}
+
 /* Dark mode support */
 @media (prefers-color-scheme: dark) {
     .pr-stack-indicator {
@@ -141,6 +316,34 @@
 
     .pr-stack-arrow {
         color: #7d8590;
+    }
+
+    /* Branch visualization dark mode */
+    .pr-merge-diagram {
+        background: #0d1117;
+        border-color: #30363d;
+    }
+
+    .diagram-title {
+        color: #c9d1d9;
+    }
+
+    .branch-node {
+        background: #161b22;
+        border-color: #30363d;
+    }
+
+    .branch-label {
+        color: #c9d1d9;
+    }
+
+    .connector-main,
+    .branch-connector {
+        background-color: #484f58;
+    }
+
+    .diagram-toggle:hover {
+        background-color: rgba(255, 255, 255, 0.05);
     }
 }
 
