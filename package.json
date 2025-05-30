@@ -1,0 +1,14 @@
+{
+  "name": "github-stackr",
+  "version": "1.0.0",
+  "description": "A visual aid to work with stacked pull requests in Github.",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "clean": "rm -rf dist"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "@types/chrome": "^0.0.268"
+  }
+}

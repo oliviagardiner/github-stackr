@@ -1,0 +1,159 @@
+.pr-stack-indicator {
+    margin: 12px 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    border-radius: 8px;
+    border: 1px solid #d1d9e0;
+    background: #f6f8fa;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.pr-stack-badge {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.pr-stack-badge:hover {
+    background-color: #f0f3f6;
+}
+
+.pr-stack-stacked {
+    color: #d1242f;
+    border-bottom: 1px solid #d1d9e0;
+}
+
+.pr-stack-normal {
+    color: #1f883d;
+}
+
+.pr-stack-icon {
+    margin-right: 6px;
+    flex-shrink: 0;
+}
+
+.pr-stack-text {
+    font-weight: 600;
+}
+
+.pr-stack-info {
+    padding: 12px;
+    background: #ffffff;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.pr-stack-chain {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+    font-size: 13px;
+}
+
+.pr-stack-branch {
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.pr-stack-base {
+    background: #dbeafe;
+    color: #1e40af;
+    border: 1px solid #bfdbfe;
+}
+
+.pr-stack-head {
+    background: #dcfce7;
+    color: #166534;
+    border: 1px solid #bbf7d0;
+}
+
+.pr-stack-arrow {
+    color: #656d76;
+    flex-shrink: 0;
+}
+
+.pr-stack-warning {
+    font-size: 13px;
+    color: #d1242f;
+    background: #fff8f8;
+    border: 1px solid #ffdddd;
+    border-radius: 4px;
+    padding: 8px 10px;
+    margin-top: 8px;
+}
+
+.pr-stack-note {
+    font-size: 13px;
+    color: #1f883d;
+    background: #f0fff4;
+    border: 1px solid #d4edda;
+    border-radius: 4px;
+    padding: 8px 10px;
+    margin-top: 8px;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .pr-stack-indicator {
+        background: #161b22;
+        border-color: #30363d;
+    }
+
+    .pr-stack-badge:hover {
+        background-color: #21262d;
+    }
+
+    .pr-stack-info {
+        background: #0d1117;
+    }
+
+    .pr-stack-base {
+        background: #1c2e4a;
+        color: #79c0ff;
+        border-color: #30363d;
+    }
+
+    .pr-stack-head {
+        background: #1a2f1a;
+        color: #56d364;
+        border-color: #30363d;
+    }
+
+    .pr-stack-warning {
+        background: #2d1b1f;
+        border-color: #6e2d31;
+        color: #ff7b72;
+    }
+
+    .pr-stack-note {
+        background: #1a2f1a;
+        border-color: #2d4a2d;
+        color: #56d364;
+    }
+
+    .pr-stack-arrow {
+        color: #7d8590;
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .pr-stack-chain {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+
+    .pr-stack-arrow {
+        transform: rotate(90deg);
+        align-self: center;
+    }
+}
